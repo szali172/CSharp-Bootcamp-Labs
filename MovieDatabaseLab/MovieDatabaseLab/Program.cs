@@ -40,6 +40,8 @@ static string DisplayMovies(List<Movie> movies, string category="all")
 }
 
 
+Console.WriteLine("Welcome to the Movie List Application!");
+
 
 while(true) {
     Console.WriteLine("Please enter a category to view the list of available movies");
@@ -86,7 +88,7 @@ while(true) {
         }
         else
         {
-            throw new Exception("Whatta Jackass");
+            throw new Exception("Whatta jackass");
         }
     } catch
     {
