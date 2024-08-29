@@ -5,11 +5,11 @@
 body {
     border: 2px solid black;
     border-radius: 10px;
-    margin: 20px 20px;
-    width: fit-content;
+    margin: 50px 50px;
+    width: 45vw;
     padding: 20px 50px;
-    background-color: antiquewhite;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); 
+    background-color: rgb(253, 224, 185);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 body * {
@@ -20,10 +20,39 @@ body * {
     background-color: red;
 }
 
+.form-check {
+    display: inline-block;
+    padding: 10px 10px 0 30px;
+}
+
+input[type='radio']:checked {
+    background-color: rgb(91, 91, 255);
+}
+
+input[type='radio'] {
+    background-color: rgb(230, 230, 230);
+}
+
+
+#search-bar {
+    background-color: rgb(230, 230, 230);
+    margin: 10px 0;
+}
+
 .completed {
     text-decoration: line-through;
 }
 
 .invisible {
     visibility: hidden;
+}
+
+.low-priority {
+    color: darkgoldenrod;
+    font-size: 0.8rem;
+}
+
+.high-priority {
+    color: crimson;
+    font-size: 0.8rem;
 }
