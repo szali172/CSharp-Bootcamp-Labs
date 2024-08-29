@@ -18,6 +18,7 @@ export class ToDoListComponent {
   ]
 
   filteredList: Todo[] = this.list;
+  currentPriorityChoice: string = 'ALL';
 
   removeToDo(item: Todo) : void {
     const index = this.list.indexOf(item, 0);
@@ -36,21 +37,24 @@ export class ToDoListComponent {
     return ''
   }
 
-  filterList(param: string) : void {
+  filterBySearch(param: string) : void {
     this.filteredList = [];
 
     for (let i of this.list) {
-      if (i.task.startsWith(param)) {
-        this.filteredList.push(i);
+      if (i.priority === this.currentPriorityChoice || this.currentPriorityChoice === 'ALL') {
+        if (i.task.toLowerCase().startsWith(param.toLowerCase())) {
+          this.filteredList.push(i);
+        }
       }
     }
   }
 
   filterByPriority(priority: string) : void {
     this.filteredList = [];
+    this.currentPriorityChoice = priority;
 
     for (let i of this.list) {
-      if (i.priority === priority) {
+      if (i.priority === priority || priority === 'ALL') {
         this.filteredList.push(i);
       }
     }
