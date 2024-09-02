@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Todo } from '../../models/todo';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.css'
 })
@@ -58,5 +59,16 @@ export class ToDoListComponent {
         this.filteredList.push(i);
       }
     }
+  }
+
+  task: string = "";
+  duration: number = 0;
+  priority: any = "NORMAL";
+
+  addToDo() : void {
+    this.list.push({ task: this.task, completed: false, duration: this.duration, priority: this.priority });
+    this.task = "";
+    this.duration = 0;
+    this.priority = "NORMAL";
   }
 }

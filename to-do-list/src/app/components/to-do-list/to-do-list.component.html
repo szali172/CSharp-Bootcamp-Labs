@@ -16,7 +16,7 @@
                id="search-bar" 
                (input)="filterBySearch(filter.value)" 
                type="search" 
-               placeholder="Search for a task" />
+               placeholder="Search for a task">
     </div>
            
     <div class="form-check">
@@ -28,7 +28,6 @@
         <label class="form-check-label">Low</label>
         <input class="form-check-input" name="PriorityFilter" type="radio" (input)="filterByPriority('LOW')">
     </div>
-
     <div class="form-check">
         <label class="form-check-label">Normal</label>
         <input class="form-check-input" name="PriorityFilter" type="radio" (input)="filterByPriority('NORMAL')">
@@ -70,5 +69,38 @@
         </tr>
     </table>
 
+    <!-- Create new task -->
+    <div id="create-new-task-section">
+        <div>
+            <label>Enter a new task:</label>
+        </div>
+        <div>
+            <input style="margin: 0;" id="search-bar" placeholder="Task name" [(ngModel)]="task">
+        </div>
+
+        <div style="padding: 20px 0 0 0;">
+            <label>How many hours do you estimate?</label>
+        </div>
+        <div>
+            <input style="margin: 0;" id="search-bar" placeholder="1" type="number" [(ngModel)]="duration">
+        </div>
+
+        <div style="padding: 20px 0 0 0;">What is the priority level?</div>
+        <div>
+            <div class="form-check">
+                <label class="form-check-label">Low</label>
+                <input class="form-check-input" name="NewTaskPriority" type="radio" value="LOW" [(ngModel)]="priority">
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">Normal</label>
+                <input class="form-check-input" name="NewTaskPriority" type="radio" value="NORMAL" [(ngModel)]="priority" checked>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">High</label>
+                <input class="form-check-input" name="NewTaskPriority" type="radio" value="HIGH" [(ngModel)]="priority">
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="addToDo()">Add</button>
+    </div>
 </body>
 </html>
