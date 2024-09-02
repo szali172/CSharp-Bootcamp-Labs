@@ -22,9 +22,16 @@ export class ToDoListComponent {
   currentPriorityChoice: string = 'ALL';
 
   removeToDo(item: Todo) : void {
-    const index = this.list.indexOf(item, 0);
+    let index = this.list.indexOf(item, 0);
     if (index > -1) {
       this.list.splice(index, 1);
+    }
+
+    // Remove it from the filteredList as well 
+    // if the user is currently viewing a certain priority
+    index = this.filteredList.indexOf(item, 0);
+    if (index > -1) {
+      this.filteredList.splice(index, 1);
     }
   }
 
