@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TacoLab.Data;
+using RestaurantFavesLab.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,14 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddDbContext<FastFoodTacoDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("FastFoodTacoDB")));
-
-builder.Services.AddDbContext<FastFoodTacoDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FastFoodTacoDB"))
-           .EnableSensitiveDataLogging()
-           .LogTo(Console.WriteLine, LogLevel.Information);
-});
+builder.Services.AddDbContext<RestaurantDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("RestaurantFavesDB")));
 
 var app = builder.Build();
 
