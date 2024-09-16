@@ -1,0 +1,21 @@
+<h2>Add an Order</h2>
+
+<div class="form-group">
+    <label>Description: </label>
+    <input [(ngModel)]="description"/>
+</div>
+<div class="form-group">
+    <label>Restaurant: </label>
+    <input [(ngModel)]="restaurant"/>
+</div>
+<div class="form-group">
+    <label>Rating: </label>
+    <input type="number" min="0" max="5" placeholder="0" [(ngModel)]="rating"/>
+</div>
+<div class="form-group">
+    <label>Order Again: </label>
+    <input type="checkbox" [(ngModel)]="orderAgain"/>
+</div>
+<div class="form-group">
+    <button type="submit" class="primary" (click)="emitOrder()">Submit</button>
+</div>

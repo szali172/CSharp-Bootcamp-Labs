@@ -12,6 +12,17 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<RestaurantDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("RestaurantFavesDB")));
 
+// CORS Authentication for Frontend
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalAngularApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,6 +31,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowLocalAngularApp");
 
 app.UseHttpsRedirection();
 

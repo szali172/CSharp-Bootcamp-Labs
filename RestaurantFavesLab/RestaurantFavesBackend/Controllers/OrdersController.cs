@@ -57,6 +57,7 @@ public class OrdersController : ControllerBase
 
         updatedOrder.Description = newOrderDto.Description;
         updatedOrder.Restaurant = newOrderDto.Restaurant;
+        updatedOrder.Rating = newOrderDto.Rating;
         updatedOrder.OrderAgain = newOrderDto.OrderAgain;
 
         await _dbContext.Orders.AddAsync(updatedOrder);
